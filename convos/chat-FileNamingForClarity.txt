@@ -1,0 +1,253 @@
+### USER
+Ik ben aan het nadenken over de naamgeving van mijn files om direct te kunnen zien wat het is en wat het doet, zodat daar geen verwarring meer over kan bestaan. Hoe zou jij deze file noemen?
+// src/app/orchestrators/RenderOrchestrator.ts
+// Verzamelaar voor ViewModels - met Field Grouping support
+
+import { VisibilityOrchestrator, VisibilityContext } from './VisibilityOrchestrator';
+import { FormStateOrchestrator } from './FormStateOrchestrator';
+import { FieldViewModel, PageViewModel } from '@domain/viewmodel/FieldViewModel';
+import { 
+  getFieldDefinition, 
+  getGroupMetadata,
+  isKnownField 
+} from '@domain/registry/FieldRegistry';
+import { logger } from '@adapters/audit/AuditLoggerAdapter';
+
+/**
+ * RenderOrchestrator
+ * 
+ * Verantwoordelijkheden:
+ * - Bouwt ViewModels uit field configs + state
+ * - Detecteert field groups en maakt container ViewModels
+ * - Evalueert visibility rules
+ * - Leest options uit registry
+ * - Leest current values uit state
+ */
+export class RenderOrchestrator {
+  constructor(
+    private readonly fso: FormStateOrchestrator,
+    private readonly visibility: VisibilityOrchestrator,
+  ) {}
+
+  /**
+   * Bouwt een ViewModel voor een enkel veld
+   * 
+   * @param fieldId - Field identifier
+   * @param context - Context voor visibility (bijv. memberId)
+   * @returns ViewModel of null als field niet visible is
+   */
+  public buildFieldViewModel(
+    fieldId: string,
+    context?: VisibilityContext
+  ): FieldViewModel | null {
+    // Validate field exists
+    if (!isKnownField(fieldId)) {
+      logger.warn('RENDER_UNKNOWN_FIELD', { fieldId });
+      return null;
+    }
+
+    const definition = getFieldDefinition(fieldId)!;
+    
+    // Check visibility
+    if (definition.visibilityRuleName) {
+      const isVisible = this.visibility.evaluate(
+        definition.visibilityRuleName,
+        context
+      );
+      
+      if (!isVisible) {
+        return null; // Field niet tonen
+      }
+    }
+    
+    // Get current value from state
+    const value = this.fso.getValue(fieldId);
+    
+    // Get options if needed
+    let options: readonly string[] | undefined;
+    if (definition.optionsKey) {
+      options = this.getOptions(definition.optionsKey);
+    }
+    
+    // Build ViewModel
+    return {
+      fieldId,
+      componentType: definition.componentType,
+      labelToken: definition.labelToken,
+      placeholderToken: definition.placeholderToken,
+      value,
+      isVisible: true,
+      options,
+      constraintsKey: definition.constraintsKey,
+      isDerived: definition.isDerived,
+    };
+  }
+
+  /**
+   * 🆕 Bouwt ViewModels voor een lijst van fieldIds
+   * Detecteert groepen en maakt container ViewModels
+   * 
+   * @param fieldIds - Lijst van field identifiers
+   * @param context - Context voor visibility
+   * @returns Array van ViewModels (inclusief containers voor gegroepeerde velden)
+   */
+  public buildPageViewModels(
+    fieldIds: string[],
+    context?: VisibilityContext
+  ): FieldViewModel[] {
+    const result: FieldViewModel[] = [];
+    const groupedFields = new Map<string, FieldViewModel[]>();
+    const processedGroups = new Set<string>();
+    
+    // Stap 1: Build individual ViewModels en groepeer ze
+    for (const fieldId of fieldIds) {
+      const vm = this.buildFieldViewModel(fieldId, context);
+      if (!vm) continue; // Skip niet-visible fields
+      
+      const definition = getFieldDefinition(fieldId);
+      const groupId = definition?.groupId;
+      
+      if (groupId) {
+        // Voeg toe aan groep
+        if (!groupedFields.has(groupId)) {
+          groupedFields.set(groupId, []);
+        }
+        groupedFields.get(groupId)!.push(vm);
+      } else {
+        // Standalone field
+        result.push(vm);
+      }
+    }
+    
+    // Stap 2: Converteer groepen naar container ViewModels
+    for (const [groupId, fields] of groupedFields) {
+      if (fields.length === 0) continue;
+      
+      const metadata = getGroupMetadata(groupId);
+      if (!metadata) {
+        // Groep heeft geen metadata -> render fields individueel
+        logger.warn('RENDER_GROUP_NO_METADATA', { groupId });
+        result.push(...fields);
+        continue;
+      }
+      
+      // Maak container ViewModel
+      const containerVM: FieldViewModel = {
+        fieldId: `__group_${groupId}`,
+        componentType: 'container',
+        labelToken: metadata.labelToken,
+        value: undefined,
+        isVisible: true,
+        
+        // Container-specific
+        containerBehavior: metadata.behavior,
+        childFields: fields,
+      };
+      
+      result.push(containerVM);
+    }
+    
+    return result;
+  }
+
+  /**
+   * 🆕 Bouwt een complete PageViewModel
+   * 
+   * @param pageConfig - Config van de page
+   * @param context - Context voor visibility
+   * @returns Complete PageViewModel
+   */
+  public buildPageViewModel(
+    pageConfig: {
+      pageId: string;
+      titleToken: string;
+      fields: Array<{ fieldId: string }>;
+    },
+    context?: VisibilityContext
+  ): PageViewModel {
+    const fieldIds = pageConfig.fields.map(f => f.fieldId);
+    const fieldViewModels = this.buildPageViewModels(fieldIds, context);
+    
+    return {
+      pageId: pageConfig.pageId,
+      titleToken: pageConfig.titleToken,
+      fields: fieldViewModels,
+    };
+  }
+
+  /**
+   * Helper: Get options from registry
+   */
+  private getOptions(optionsKey: string): readonly string[] {
+    // TODO: Import from @domain/constants/options.ts
+    const optionsMap: Record<string, readonly string[]> = {
+      autoCount: ['Geen', 'Een', 'Twee'],
+      woningType: ['Huur', 'Koop', 'Anders'],
+      isBoolean: ['Ja', 'Nee'],
+      gender: ['man', 'vrouw', 'anders', 'n.v.t.'],
+      incomeCategory: ['geen', 'werk', 'uitkering', 'anders'],
+      incomeFrequency: ['week', '4wk', 'month', 'quarter', 'year'],
+      uitkeringType: [
+        'DUO', 'Bijstand', 'WW', 'ZW', 'WAO', 
+        'WGA', 'WIA', 'IVA', 'WAJONG', 'IOW', 
+        'Pensioen', 'AOW', 'anders'
+      ],
+      burgerlijkeStaat: [
+        'Alleenstaand', 'Gehuwd', 'Fiscaal Partners',
+        'Samenwonend', 'Bevriend', 'Anders'
+      ],
+    };
+    
+    return optionsMap[optionsKey] ?? [];
+  }
+}
+
+
+
+
+
+
+
+### ASSISTANT
+Op basis van de verantwoordelijkheden en de bestaande architectuur in je codebase, raad ik aan om de file en klasse te hernoemen naar:
+
+### 📁 `ViewModelOrchestrator.ts`  
+*(klasse: `ViewModelOrchestrator`)*
+
+#### Waarom deze naam?
+✅ **Preciezer dan "Render"**  
+"Render" suggereert UI-weergave (DOM, componenten), terwijl deze klasse *uitsluitend* ViewModels *prepareert* — geen rendering uitvoert. Dit voorkomt verwarring met frontend-rendering layers.
+
+✅ **Consistent met jouw architectuur**  
+Je gebruikt al het `Orchestrator`-patroon (`VisibilityOrchestrator`, `FormStateOrchestrator`). Deze naam past naadloos in die conventie en benadrukt de coördinerende rol (registry + state + visibility rules).
+
+✅ **Reflecteert de kernverantwoordelijkheid**  
+De klasse bouwt *alle* ViewModel-types:  
+- `FieldViewModel` (inclusief containers voor groepen)  
+- `PageViewModel`  
+De naam "ViewModel" dekt deze scope volledig, zonder te beperken tot "Page" of "Form".
+
+✅ **Vermijdt misleidende termen**  
+Geen "Builder" (te simpel voor orchestratie), geen "Assembler" (minder herkenbaar in jouw codebase), geen "Render" (technisch onjuist).
+
+#### Aanbevolen aanvulling in de JSDoc:
+```ts
+/**
+ * ViewModelOrchestrator
+ * 
+ * Orchestreert de opbouw van ViewModels voor formulierweergave:
+ * - Combineert field-definities (registry), huidige state en visibility rules
+ * - Genereert FieldViewModels (inclusief container-VMs voor gegroepeerde velden)
+ * - Filtert niet-zichtbare velden vóór levering aan UI-laag
+ * - Levert complete PageViewModels voor rendering
+ * 
+ * ⚠️ Let op: Deze klasse bereidt ViewModels voor — 
+ * ze voert géén DOM-rendering uit. De naam "Render" in eerdere versies 
+ * was misleidend en is bewust vermeden.
+ */
+```
+
+#### Extra tip voor jouw governance-focus:
+Voeg deze naamgevingskeuze toe aan je ADR of style guide met de motivatie:  
+*"Vermijd 'Render' in niet-UI-lagen om scheiding van concerns expliciet te houden. Orchestrators bereiden data voor; adapters/components renderen."*  
+Dit sluit naadloos aan bij jouw voorkeur voor duidelijke grenzen, traceerbaarheid en voorkomen van architecturale drift. 🌉
