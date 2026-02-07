@@ -1,0 +1,3972 @@
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/adapters/audit/AuditLoggerAdapter.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/hooks/useTransactionHistory.ts:3:import { AuditLogger } from '@adapters/audit/AuditLoggerAdapter';
+src/app/orchestrators/ResearchOrchestrator.WIP.ts:16:import { Logger } from '@adapters/audit/AuditLoggerAdapter';
+src/ui/screens/CSV/CsvUploadScreen.tsx:5:import { Logger } from '@adapters/audit/AuditLoggerAdapter';
+src/app/orchestrators/MasterOrchestrator.ts:9:import { logger } from '@adapters/audit/AuditLoggerAdapter';
+src/app/context/ThemeContext.tsx:4:import {logger} from '@adapters/audit/AuditLoggerAdapter';
+src/adapters/validation/validateAtBoundary.ts:3:import { Logger } from '@adapters/audit/AuditLoggerAdapter';
+src/adapters/transaction/stateful.ts:2:import { AuditLogger } from '@adapters/audit/AuditLoggerAdapter';
+src/services/transactionService.ts:6:import { Logger } from '@adapters/audit/AuditLoggerAdapter';
+src/services/storageShim.ts:3:import { AuditLogger } from '@adapters/audit/AuditLoggerAdapter'; // Aangenomen pad
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export interface AuditEvent {
+11:export interface AuditLoggerPort {
+98:export const auditLogger = new AuditLoggerAdapter();
+104:export const Logger = {
+141:export const logger = Logger;
+142:export const AuditLogger = Logger;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { validationMessages } from '@state/schemas/sections/validationMessages';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (13 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/adapters/csv/CSVAdapter.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/adapters/csv/csvService.ts:1:export { CSVAdapter as csvService } from './CSVAdapter';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const CSVAdapter = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { parseRawCsv } from '@utils/csvHelper';
+2:import { CSVProcessor, CSVKeys } from '@domain/services/CSVProcessor';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/adapters/csv/csvService.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/ResearchOrchestrator.WIP.ts:2:import { csvService } from '@adapters/csv/csvService';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+1:export { CSVAdapter as csvService } from './CSVAdapter';
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/adapters/StateWriter/StateWriterAdapter.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/FormStateOrchestrator.ts:3:import { StateWriterAdapter } from '@adapters/StateWriter/StateWriterAdapter';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+27:export class StateWriterAdapter {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import type { FormState } from '@core/types/core';
+2:import { DATA_KEYS } from '@domain/constants/datakeys';
+
+[1m4) Bevat state? (heuristiek)[0m
+ja (2 hits)
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (13 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/adapters/transaction/stateful.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/hooks/transactionActions.ts:3:import { StatefulTransactionAdapter } from '@adapters/transaction/stateful';
+src/app/hooks/useTransactionHistory.ts:6:import { StatefulTransactionAdapter } from '@adapters/transaction/stateful';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+14:export class StatefulTransactionAdapter {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { AuditLogger } from '@adapters/audit/AuditLoggerAdapter';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (6 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/adapters/undo/stateful.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/hooks/transactionActions.ts:3:import { StatefulTransactionAdapter } from '@adapters/transaction/stateful';
+src/app/hooks/useTransactionHistory.ts:6:import { StatefulTransactionAdapter } from '@adapters/transaction/stateful';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export const undo = (): UndoResult | null => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/adapters/validation/formStateSchema.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/core/types/core.ts:2:import { FormStateSchema } from '../../adapters/validation/formStateSchema';
+src/adapters/validation/validateAtBoundary.ts:2:import { FieldSchemas } from './formStateSchema';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+103:export const FieldSchemas: Record<string, z.ZodType<unknown>> = Object.fromEntries(
+113:export const SetupSchema = z.object({
+123:export const HouseholdSchema = z.object({
+130:export const FinanceSchema = z.object({
+147:export const FormStateSchema = z.object({
+179:export function parseFormState(input: unknown): ValidatedFormState {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { z } from 'zod';
+2:import { FIELD_CONSTRAINTS_REGISTRY } from '@domain/rules/fieldConstraints';
+3:import type { FieldConstraint } from '@domain/rules/fieldConstraints';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (13 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/adapters/validation/validateAtBoundary.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/FormStateOrchestrator.ts:5:import { validateAtBoundary } from '@adapters/validation/validateAtBoundary';
+src/app/orchestrators/MasterOrchestrator.ts:8:import { validateAtBoundary } from '@adapters/validation/validateAtBoundary';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+45:export function validateAtBoundary<T = unknown>(
+117:export function validateAtBoundaryBatch(
+142:export function safeParseAtBoundary<T = unknown>(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { ZodError } from 'zod';
+2:import { FieldSchemas } from './formStateSchema';
+3:import { Logger } from '@adapters/audit/AuditLoggerAdapter';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (4 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/context/FormContext.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/context/WizardContext.tsx:3:import { useFormContext } from './FormContext';
+src/test-utils/render/renderers.tsx:10:import { FormContext } from '@app/context/FormContext';
+src/test-utils/render/providers.tsx:4:import { FormContext } from '@app/context/FormContext';
+src/App.tsx:4:import { FormProvider } from '@app/context/FormContext';
+src/ui/screens/Wizard/LandingScreen.tsx:5:import { useFormContext as useForm } from '@app/context/FormContext';
+src/ui/screens/Wizard/WizardPage.tsx:9:import { useFormContext } from '@app/context/FormContext';
+src/ui/navigation/MainNavigator.tsx:2:import { useFormContext as useForm } from '@app/context/FormContext';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+29:export const FormContext = createContext<FormContextType | undefined>(undefined);
+37:export const FormProvider: React.FC<FormProviderProps> = ({
+66:export const useFormContext = () => {
+75:export type { FormState } from '@core/types/core';
+76:export type { FormAction } from './formReducer';
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+10:import { formReducer, type FormAction } from './formReducer';
+11:import { useStableOrchestrator } from './useStableOrchestrator';
+12:import type { FormState } from '@core/types/core';
+13:import { initialFormState } from './initialFormState';
+
+[1m4) Bevat state? (heuristiek)[0m
+ja (1 hits)
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (5 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/context/formReducer.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/FormStateOrchestrator.ts:2:import type { FormAction } from '@app/context/formReducer';
+src/app/context/useStableOrchestrator.ts:5:import type { FormAction } from './formReducer';
+src/app/context/FormContext.tsx:10:import { formReducer, type FormAction } from './formReducer';
+src/app/context/FormContext.tsx:76:export type { FormAction } from './formReducer';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+29:export function formReducer(state: FormState, action: FormAction): FormState {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import type { FormState } from '@core/types/core';
+2:import { deepMerge } from '@utils/objects';
+3:import { DATA_KEYS } from '@domain/constants/datakeys';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/context/initialFormState.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/App.tsx:7:import { initialFormState } from '@app/context/initialFormState';
+src/app/context/FormContext.tsx:13:import { initialFormState } from './initialFormState';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export const initialFormState: FormState = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import type { FormState } from '@core/types/core';
+3:import { DATA_KEYS } from '@domain/constants/datakeys';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/context/ThemeContext.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/useAppStyles.ts:4:import { useTheme } from '@app/context/ThemeContext';
+src/ui/screens/Settings/SettingsScreen.tsx:6:import { useTheme } from '@app/context/ThemeContext';
+src/test-utils/render/renderers.tsx:9:import { ThemeProvider } from '@app/context/ThemeContext';
+src/test-utils/render/providers.tsx:3:import { ThemeProvider } from '@app/context/ThemeContext';
+src/App.tsx:2:import { ThemeProvider } from '@app/context/ThemeContext';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+17:export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+46:export const useTheme = () => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import * as React from 'react';
+3:import AsyncStorage from '@react-native-async-storage/async-storage';
+4:import {logger} from '@adapters/audit/AuditLoggerAdapter';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/context/useStableOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/context/FormContext.tsx:11:import { useStableOrchestrator } from './useStableOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+22:export function useStableOrchestrator(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { useMemo } from 'react';
+4:import type { FormState } from '@core/types/core';
+5:import type { FormAction } from './formReducer';
+6:import { FormStateOrchestrator } from '@app/orchestrators/FormStateOrchestrator';
+7:import { MasterOrchestrator } from '@app/orchestrators/MasterOrchestrator';
+8:import { ResearchOrchestrator } from '@app/orchestrators/ResearchOrchestrator.WIP';
+9:import { VisibilityOrchestrator } from '@app/orchestrators/VisibilityOrchestrator';
+10:import { UIManager } from '@app/orchestrators/UIManager';
+11:import { DataManager } from '@app/orchestrators/DataManager';
+12:import { BusinessManager } from '@app/orchestrators/BusinessManager';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/context/WizardContext.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/App.tsx:3:import { WizardProvider } from '@app/context/WizardContext';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+25:export const WizardProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+51:export const useWizard = () => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import React, { createContext, useContext, useState, useMemo, ReactNode } from 'react';
+3:import { useFormContext } from './FormContext';
+
+[1m4) Bevat state? (heuristiek)[0m
+ja (1 hits)
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/hooks/transactionActions.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/hooks/useTransactionHistory.ts:5:import { executeUpdateAction } from './transactionActions';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export const executeUpdateAction = (
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { MoneySchema } from '@core/types/research';
+3:import { StatefulTransactionAdapter } from '@adapters/transaction/stateful';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/hooks/useTransactionHistory.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/screens/Daily/UndoScreen.tsx:4:import { useTransactionHistory } from '@app/hooks/useTransactionHistory';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+21:export const useTransactionHistory = (initialData: TransactionRecord[] = []) => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { useState } from 'react';
+3:import { AuditLogger } from '@adapters/audit/AuditLoggerAdapter';
+4:import { ZodError } from 'zod';
+5:import { executeUpdateAction } from './transactionActions';
+6:import { StatefulTransactionAdapter } from '@adapters/transaction/stateful';
+
+[1m4) Bevat state? (heuristiek)[0m
+ja (1 hits)
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/BusinessManager.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/context/useStableOrchestrator.ts:12:import { BusinessManager } from '@app/orchestrators/BusinessManager';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+6:export class BusinessManager implements IBusinessOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { FormState } from '@core/types/core';
+3:import { IBusinessOrchestrator, FinancialSummaryVM } from './interfaces/IBusinessOrchestrator';
+4:import { FinancialOrchestrator } from './FinancialOrchestrator';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/ComponentOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/UIManager.ts:5:import { ComponentOrchestrator } from './ComponentOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+61:export class ComponentOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+19:import { FieldViewModel } from './RenderOrchestrator';
+20:import { labelFromToken } from '@domain/constants/labelResolver';
+21:import { isoDateOnlyToLocalNoon, toISOFromLocal } from '@domain/helpers/DateHydrator';
+22:import { ComponentStyleFactory as Style } from '@domain/styles/ComponentStyleFactory';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (5 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/DataManager.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/context/useStableOrchestrator.ts:11:import { DataManager } from '@app/orchestrators/DataManager';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+8:export class DataManager implements IDataOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import type { FormState } from '@core/types/core';
+4:import type { IDataOrchestrator, ImportResult } from './interfaces/IDataOrchestrator';
+5:import { ImportOrchestrator } from './ImportOrchestrator';
+6:import { ResearchOrchestrator } from './ResearchOrchestrator.WIP';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/export.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+24:export const aggregateExportData = (state: FormState) => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { FormState, Member } from '@core/types/core';
+3:import { isSpecialInvestigationRequired } from '@domain/rules/householdRules';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (1 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/FinancialOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/BusinessManager.ts:4:import { FinancialOrchestrator } from './FinancialOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export class FinancialOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { computePhoenixSummary } from '@domain/rules/calculateRules';
+2:import { formatCurrency } from '@domain/helpers/numbers';
+3:import type { FormState } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (1 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/FormStateOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/VisibilityOrchestrator.ts:3:import { FormStateOrchestrator } from './FormStateOrchestrator'; 
+src/app/orchestrators/ResearchOrchestrator.WIP.ts:17:import { FormStateOrchestrator } from './FormStateOrchestrator';
+src/app/orchestrators/UIManager.ts:2:import { FormStateOrchestrator } from './FormStateOrchestrator';
+src/app/orchestrators/RenderOrchestrator.ts:3:import { FormStateOrchestrator } from './FormStateOrchestrator';
+src/app/orchestrators/MasterOrchestrator.ts:3:import type { FormStateOrchestrator } from './FormStateOrchestrator';
+src/app/context/useStableOrchestrator.ts:6:import { FormStateOrchestrator } from '@app/orchestrators/FormStateOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+10:export class FormStateOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import type { FormState } from '@core/types/core';
+2:import type { FormAction } from '@app/context/formReducer';
+3:import { StateWriterAdapter } from '@adapters/StateWriter/StateWriterAdapter';
+4:import { DATA_KEYS } from '@domain/constants/datakeys';
+5:import { validateAtBoundary } from '@adapters/validation/validateAtBoundary';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (8 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/ImportOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/DataManager.ts:5:import { ImportOrchestrator } from './ImportOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export interface ImportResult {
+16:export class ImportOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { ResearchOrchestrator } from '@app/orchestrators/ResearchOrchestrator.WIP';
+2:import { Member } from '@core/types/core';
+3:import { CsvItem } from '@core/types/research';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/interfaces/IBusinessOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/BusinessManager.ts:3:import { IBusinessOrchestrator, FinancialSummaryVM } from './interfaces/IBusinessOrchestrator';
+src/app/orchestrators/MasterOrchestrator.ts:6:import type { IBusinessOrchestrator } from './interfaces/IBusinessOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export interface FinancialSummaryVM {
+10:  export interface IBusinessOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import type { FormState } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/interfaces/IDataOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/DataManager.ts:4:import type { IDataOrchestrator, ImportResult } from './interfaces/IDataOrchestrator';
+src/app/orchestrators/MasterOrchestrator.ts:5:import type { IDataOrchestrator } from './interfaces/IDataOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+12:export interface IDataOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import type { FormState } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/interfaces/IUIOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/UIManager.ts:12:} from './interfaces/IUIOrchestrator';
+src/app/orchestrators/MasterOrchestrator.ts:4:import type { IUIOrchestrator } from './interfaces/IUIOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export interface FieldViewModel {
+17:export interface PageViewModel {
+33:export interface IUIOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { ComponentViewModel as ConcreteComponentViewModel } from '@domain/registry/ComponentRegistry';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (10 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/MasterOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/context/useStableOrchestrator.ts:7:import { MasterOrchestrator } from '@app/orchestrators/MasterOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+23:export class MasterOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import type { FormStateOrchestrator } from './FormStateOrchestrator';
+4:import type { IUIOrchestrator } from './interfaces/IUIOrchestrator';
+5:import type { IDataOrchestrator } from './interfaces/IDataOrchestrator';
+6:import type { IBusinessOrchestrator } from './interfaces/IBusinessOrchestrator';
+8:import { validateAtBoundary } from '@adapters/validation/validateAtBoundary';
+9:import { logger } from '@adapters/audit/AuditLoggerAdapter';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/RenderOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/ComponentOrchestrator.ts:19:import { FieldViewModel } from './RenderOrchestrator';
+src/app/orchestrators/UIManager.ts:4:import { RenderOrchestrator } from './RenderOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+13:export interface FieldViewModel {
+25:export interface PageViewModel {
+52:export class RenderOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { FormStateOrchestrator } from './FormStateOrchestrator';
+9:import { getFieldDefinition } from '@domain/registry/FieldRegistry';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (12 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/ResearchOrchestrator.WIP.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/DataManager.ts:6:import { ResearchOrchestrator } from './ResearchOrchestrator.WIP';
+src/app/orchestrators/ImportOrchestrator.ts:1:import { ResearchOrchestrator } from '@app/orchestrators/ResearchOrchestrator.WIP';
+src/app/context/useStableOrchestrator.ts:8:import { ResearchOrchestrator } from '@app/orchestrators/ResearchOrchestrator.WIP';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+26:export interface MasterProcessResult {
+49:export class ResearchOrchestrator {
+170:export const researchIntakeCoordinator = (fso: FormStateOrchestrator) => 
+174:export default ResearchOrchestrator;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { DATA_KEYS } from '@domain/constants/datakeys';
+2:import { csvService } from '@adapters/csv/csvService';
+4:import { dataProcessor } from '@domain/finance/StatementIntakePipeline.WIP'; 
+5:import { Member } from '@core/types/core';
+16:import { Logger } from '@adapters/audit/AuditLoggerAdapter';
+17:import { FormStateOrchestrator } from './FormStateOrchestrator';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/UIManager.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/context/useStableOrchestrator.ts:10:import { UIManager } from '@app/orchestrators/UIManager';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+25:export class UIManager implements IUIOrchestrator {
+111:export default UIManager;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { FormStateOrchestrator } from './FormStateOrchestrator';
+3:import { VisibilityOrchestrator } from './VisibilityOrchestrator';
+4:import { RenderOrchestrator } from './RenderOrchestrator';
+5:import { ComponentOrchestrator } from './ComponentOrchestrator';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (16 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/app/orchestrators/VisibilityOrchestrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/UIManager.ts:3:import { VisibilityOrchestrator } from './VisibilityOrchestrator';
+src/app/context/useStableOrchestrator.ts:9:import { VisibilityOrchestrator } from '@app/orchestrators/VisibilityOrchestrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+20:export class VisibilityOrchestrator {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { FormStateOrchestrator } from './FormStateOrchestrator'; 
+4:import { fieldVisibilityRules } from '@domain/rules/fieldVisibility';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (5 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/App.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+22:export default App;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import React from 'react';
+2:import { ThemeProvider } from '@app/context/ThemeContext';
+3:import { WizardProvider } from '@app/context/WizardContext';
+4:import { FormProvider } from '@app/context/FormContext';
+5:import MainNavigator from '@ui/navigation/MainNavigator';
+7:import { initialFormState } from '@app/context/initialFormState';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/config/features.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+8:export const showWizardProgress = true;
+14:export const showSuccessToasts = false;
+17:export const features = {
+21:export const PHOENIX_KEYS = [];
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/config/WizStrings.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/constants/labelResolver.ts:2:import WizStrings from '@config/WizStrings';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+1:export const WizStrings = {
+17:export default WizStrings;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/core/types/core.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/rules/householdRules.ts:2:import { Member } from '@core/types/core';
+src/domain/rules/dataFilters.ts:2:import { Member } from '@core/types/core';
+src/app/orchestrators/interfaces/IDataOrchestrator.ts:3:import type { FormState } from '@core/types/core';
+src/app/orchestrators/interfaces/IBusinessOrchestrator.ts:2:import type { FormState } from '@core/types/core';
+src/app/orchestrators/DataManager.ts:3:import type { FormState } from '@core/types/core';
+src/app/orchestrators/BusinessManager.ts:1:import { FormState } from '@core/types/core';
+src/app/orchestrators/FormStateOrchestrator.ts:1:import type { FormState } from '@core/types/core';
+src/app/orchestrators/ImportOrchestrator.ts:2:import { Member } from '@core/types/core';
+src/app/orchestrators/FinancialOrchestrator.ts:3:import type { FormState } from '@core/types/core';
+src/app/orchestrators/ResearchOrchestrator.WIP.ts:5:import { Member } from '@core/types/core';
+src/app/orchestrators/export.ts:2:import { FormState, Member } from '@core/types/core';
+src/domain/research/PrivacyAirlock.WIP.ts:2:import { Member } from '@core/types/core';
+src/app/context/formReducer.ts:1:import type { FormState } from '@core/types/core';
+src/app/context/useStableOrchestrator.ts:4:import type { FormState } from '@core/types/core';
+src/app/context/FormContext.tsx:12:import type { FormState } from '@core/types/core';
+src/app/context/FormContext.tsx:75:export type { FormState } from '@core/types/core';
+src/app/context/initialFormState.ts:2:import type { FormState } from '@core/types/core';
+src/test-utils/factories/memberFactory.ts:3:import type { Member } from '@core/types/core';
+src/test-utils/factories/stateFactory.ts:3:import type { FormState } from '@core/types/core';
+src/test-utils/render/renderers.tsx:11:import { FormState } from '@core/types/core';
+src/test-utils/render/providers.tsx:5:import { FormState } from '@core/types/core';
+src/navigation/Navigator.tsx:2:import { FormState } from '@core/types/core';
+src/services/storageShim.ts:4:import type { FormState } from '@core/types/core';
+src/services/householdAlign.ts:2:import { Member } from '@core/types/core';
+src/services/migrationService.ts:3:import { FormState, DeepPartial, Member } from '@core/types/core';
+src/adapters/StateWriter/StateWriterAdapter.ts:1:import type { FormState } from '@core/types/core';
+src/ui/selectors/householdSelectors.ts:2:import { FormState } from '@core/types/core';
+src/ui/selectors/financialSelectors.ts:1:import type { FormState } from '@core/types/core';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+8:export interface FormState extends RawFormState {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { z } from 'zod';
+2:import { FormStateSchema } from '../../adapters/validation/formStateSchema';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/core/types/research.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/rules/financeRules.ts:5:} from '@core/types/research';
+src/domain/research/PrivacyAirlock.WIP.ts:3:import { MemberType, RawUIData, ResearchPayload } from '@core/types/research';
+src/app/hooks/transactionActions.ts:2:import { MoneySchema } from '@core/types/research';
+src/app/orchestrators/ImportOrchestrator.ts:3:import { CsvItem } from '@core/types/research';
+src/app/orchestrators/ResearchOrchestrator.WIP.ts:11:} from '@core/types/research';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export interface FinanceItem {
+11:export interface FinanceBucket {
+16:export interface FinanceState {
+21:export interface FinancialIncomeSummary {
+27:export interface UndoResult {
+37:export const MoneySchema = z.object({
+45:export interface Member {
+58:export interface CsvItem {
+69:export interface RawUIData {
+88:export interface ResearchPayload {
+104:export const CONTRACT_VERSION = '1.0.0';
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { z } from 'zod';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (31 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/Colors.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/styles/ComponentStyleFactory.ts:3:import { Colors } from '@domain/constants/Colors';
+src/ui/styles/modules/Toggles.ts:4:import type { ColorScheme } from '../Colors';
+src/ui/styles/modules/Alerts.ts:3:import type { ColorScheme } from '../Colors';
+src/ui/styles/modules/Containers.ts:2:import { ColorScheme } from '../Colors';
+src/ui/styles/modules/Buttons.ts:4:import type { ColorScheme } from '@domain/constants/Colors';
+src/ui/styles/modules/Summary.ts:3:import type { ColorScheme } from '@domain/constants/Colors';
+src/ui/styles/modules/Chips.ts:3:import type { ColorScheme } from '@domain/constants/Colors';
+src/ui/styles/modules/Header.ts:5:import type { ColorScheme } from '@domain/constants/Colors';
+src/ui/styles/modules/Checkboxes.ts:4:import type { ColorScheme } from '../Colors';
+src/ui/styles/modules/Forms.ts:4:import type { ColorScheme } from '@domain/constants/Colors';
+src/ui/styles/modules/Typography.ts:3:import type { ColorScheme } from '../Colors';
+src/ui/styles/modules/Helpers.ts:3:import type { ColorScheme } from '../Colors';
+src/ui/styles/modules/Layout.ts:4:import type { ColorScheme } from '@domain/constants/Colors';
+src/ui/styles/modules/Cards.ts:4:import type { ColorScheme } from '@domain/constants/Colors';
+src/ui/styles/modules/Dashboard.ts:5:import type { ColorScheme } from '@domain/constants/Colors';
+src/ui/styles/useAppStyles.ts:5:import { Colors, Theme } from '@domain/constants/Colors';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export interface ColorScheme {
+30:export const Colors: Record<Theme, ColorScheme> = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/datakeys.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/FormStateOrchestrator.ts:4:import { DATA_KEYS } from '@domain/constants/datakeys';
+src/app/orchestrators/ResearchOrchestrator.WIP.ts:1:import { DATA_KEYS } from '@domain/constants/datakeys';
+src/app/context/formReducer.ts:3:import { DATA_KEYS } from '@domain/constants/datakeys';
+src/app/context/initialFormState.ts:3:import { DATA_KEYS } from '@domain/constants/datakeys';
+src/test-utils/factories/stateFactory.ts:2:import { DATA_KEYS } from '@domain/constants/datakeys';
+src/services/migrationService.ts:2:import { DATA_KEYS, SUB_KEYS } from '@domain/constants/datakeys';
+src/adapters/StateWriter/StateWriterAdapter.ts:2:import { DATA_KEYS } from '@domain/constants/datakeys';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+2:export const DATA_KEYS = {
+9:export const SUB_KEYS = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/labelResolver.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/ComponentOrchestrator.ts:20:import { labelFromToken } from '@domain/constants/labelResolver';
+src/ui/components/CollapsibleSection.tsx:5:import { labelFromToken } from '@domain/constants/labelResolver';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export function labelFromToken(token: string): string {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import WizStrings from '@config/WizStrings';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/labels.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const UI_LABELS = {
+22:export const PAGE_LABELS = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { UX_TOKENS } from './registry';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/options.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/registry/FieldRegistry.ts:13:} from '@domain/registry/options';
+src/domain/rules/fieldVisibility.ts:9:import type { WoningType, AutoCount, UitkeringType } from '@domain/registry/options';
+src/domain/rules/fieldConstraints.ts:2:import { GENERAL_OPTIONS, HOUSEHOLD_OPTIONS, FINANCE_OPTIONS } from '@domain/registry/options';
+src/app/orchestrators/RenderOrchestrator.ts:8:} from '@domain/registry/options';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+6:export const AUTO_COUNT_OPTIONS = ['Geen', 'Een', 'Twee'] as const;
+9:export const WONING_TYPE_OPTIONS = ['Huur', 'Koop', 'Inwonend'] as const;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/registry.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/constants/labels.ts:1:import { UX_TOKENS } from './registry';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const DATA_KEYS = {
+10:export const SUB_KEYS = {
+16:export const UX_TOKENS = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/Tokens.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/styles/ComponentStyleFactory.ts:5:import { Tokens } from '@domain/constants/Tokens';
+src/ui/styles/modules/Toggles.ts:3:import { Space, Type } from '../Tokens';
+src/ui/styles/modules/Alerts.ts:2:import { Tokens, Type } from '../Tokens';
+src/ui/styles/modules/Containers.ts:3:import { Tokens } from '../Tokens';
+src/ui/styles/modules/Buttons.ts:3:import { Space, Type, Radius, Tokens } from '@domain/constants/Tokens';
+src/ui/styles/modules/Summary.ts:2:import { Space, Type, Radius } from '@domain/constants/Tokens';
+src/ui/styles/modules/Chips.ts:2:import { Space, Type, Radius } from '@domain/constants/Tokens';
+src/ui/styles/modules/Header.ts:4:import { Space, Type, Tokens } from '@domain/constants/Tokens';
+src/ui/styles/modules/Checkboxes.ts:3:import { Sizes } from '../Tokens';
+src/ui/styles/modules/Forms.ts:3:import { Space, Type, Radius } from '@domain/constants/Tokens';
+src/ui/styles/modules/Typography.ts:2:import { Tokens, Type } from '../Tokens';
+src/ui/styles/modules/Helpers.ts:2:import { Space, Type } from '../Tokens';
+src/ui/styles/modules/Layout.ts:3:import { Space } from '@domain/constants/Tokens';
+src/ui/styles/modules/Cards.ts:3:import { Space, Radius, Type } from '@domain/constants/Tokens';
+src/ui/styles/modules/Dashboard.ts:4:import { Space, Type, Radius, Tokens } from '@domain/constants/Tokens';
+src/ui/styles/useAppStyles.ts:6:import { Tokens } from '@domain/constants/Tokens';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+2:export const Space = { xs: 4, sm: 8, md: 12, lg: 16, xl: 20, xxl: 24 } as const;
+3:export const Type = { xs: 12, sm: 14, md: 16, lg: 17, xl: 18, h2: 28, kpi: 48 } as const;
+4:export const Radius = {
+14:export const Sizes = { inputHeight: 48, checkbox: 24, toggleWidth: 80 } as const;
+21:export const Shadows = {
+32:export const Tokens = { Space, Type, Radius, Sizes, Shadows } as const;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/uiSections.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/screens/Wizard/pages/4fixedExpenses.config.ts:2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+src/ui/screens/Wizard/pages/3incomeDetails.config.ts:2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+src/ui/screens/Wizard/pages/1setupHousehold.config.ts:2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+src/ui/screens/Wizard/pages/2detailsHousehold.config.ts:1:import { UI_SECTIONS } from '@domain/constants/uiSections';
+src/ui/screens/CSV/CsvUploadScreen.tsx:3:import { UI_SECTIONS } from '@domain/constants/uiSections';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+2:export const UI_SECTIONS = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/constants/uxTokens.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/screens/Wizard/pages/4fixedExpenses.config.ts:3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+src/ui/screens/Wizard/pages/3incomeDetails.config.ts:3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+src/ui/screens/Wizard/pages/1setupHousehold.config.ts:3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+src/ui/screens/Wizard/pages/2detailsHousehold.config.ts:2:import { UX_TOKENS } from '@domain/constants/uxTokens';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+1:export const UX_TOKENS = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/finance/StatementIntakePipeline.WIP.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/kernel/finance/mappers.ts:2:import { CsvItem } from '@domain/finance/StatementIntakePipeline.WIP';
+src/app/orchestrators/ResearchOrchestrator.WIP.ts:4:import { dataProcessor } from '@domain/finance/StatementIntakePipeline.WIP'; 
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+25:export const dataProcessor = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { toCents } from '@domain/helpers/numbers';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (5 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/helpers/DateHydrator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/validation/dateValidators.ts:1:import { isoDateOnlyToLocalNoon, todayLocalNoon } from '@domain/helpers/DateHydrator';
+src/domain/rules/ageBoundaryRules.ts:1:import { todayLocalNoon } from '@domain/helpers/DateHydrator';
+src/domain/rules/ageBoundaryRules.ts:23:import { isoDateOnlyToLocalNoon } from '@domain/helpers/DateHydrator';
+src/app/orchestrators/ComponentOrchestrator.ts:21:import { isoDateOnlyToLocalNoon, toISOFromLocal } from '@domain/helpers/DateHydrator';
+src/ui/components/fields/DateField.tsx:5:import { isoDateOnlyToLocalNoon, toISOFromLocalNoon, todayLocalNoon, formatToDisplay } from '@domain/helpers/DateHydrator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+20:  export function isoDateOnlyToLocalNoon(iso: string): Date | null {
+28:  export function toISOFromLocal(dateLocal: Date): string {
+36:  export function toISOFromLocalNoon(dateLocalNoon: Date): string {
+41:  export function todayLocalNoon(): Date {
+50:  export function getAdultMaxISO(base?: Date): string {
+57:  export function getChildMinISO(base?: Date): string {
+65:  export function getChildMaxISO(base?: Date): string {
+73:export function parseDDMMYYYYtoISO(input: string): string | null {
+98:  export function getISOWeek(date: Date): number {
+125:  export function formatToDisplay(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (14 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/helpers/frequency.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/utils/index.ts:2:export * from '@domain/helpers/frequency';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const WEEKS_PER_YEAR = 52;
+5:export const MONTHS_PER_YEAR = 12;
+12:export const getMonthlyFactor = (freq?: Frequency | string): number => {
+33:export const convertToMonthlyCents = (cents: number, freq?: Frequency | string): number => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/helpers/numbers.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/FinancialOrchestrator.ts:2:import { formatCurrency } from '@domain/helpers/numbers';
+src/domain/finance/StatementIntakePipeline.WIP.ts:2:import { toCents } from '@domain/helpers/numbers';
+src/domain/services/CSVProcessor.ts:1:import { toCents } from '../helpers/numbers';
+src/utils/index.ts:3:export * from '@domain/helpers/numbers';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export function formatDutchValue(raw: string): string {
+45:export function toCents(input: string | number | undefined | null): number {
+59:export function formatCentsToDutch(cents: number): string {
+67:export function formatCurrency(amountCents: number): string {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { cleanName } from '@utils/strings';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (8 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/helpers/TimeProvider.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/rules/conditions.ts:6:import { TimeProvider } from '../helpers/TimeProvider';
+src/domain/rules/ageRules.ts:1:import { TimeProvider } from "@domain/helpers/TimeProvider";
+src/infrastructure/clock/LocalNoonClockPort.ts:1:import { TimeProvider } from "@domain/helpers/TimeProvider";
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+1:export interface TimeProvider { getCurrentLocalNoon(): Date; }
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/index.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/services/migrationService.ts:4:import { createMockState } from '@test-utils/index';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export type { ValueProvider } from './interfaces/ValueProvider';
+6:export type { StateWriter } from './interfaces/StateWriter';
+9:export const DATA_KEYS = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/interfaces/index.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/services/migrationService.ts:4:import { createMockState } from '@test-utils/index';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+1:export * from './ValueProvider';
+2:export * from './StateWriter';
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/interfaces/StateWriter.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/interfaces/index.ts:2:export * from './StateWriter';
+src/domain/index.ts:6:export type { StateWriter } from './interfaces/StateWriter';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+1:export interface StateWriter { updateField(fieldId: string, value: unknown): void; }
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/interfaces/ValueProvider.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/interfaces/index.ts:1:export * from './ValueProvider';
+src/domain/index.ts:5:export type { ValueProvider } from './interfaces/ValueProvider';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+3:export interface ValueProvider {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/registry/ComponentRegistry.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/registry/FieldRegistry.ts:4:import { COMPONENT_TYPES, ComponentType } from './ComponentRegistry';
+src/domain/styles/ComponentStyleFactory.ts:7:import { ComponentStyleRule } from '@domain/registry/ComponentRegistry';
+src/app/orchestrators/ComponentOrchestrator.ts:18:} from '@domain/registry/ComponentRegistry';
+src/app/orchestrators/interfaces/IUIOrchestrator.ts:3:import { ComponentViewModel as ConcreteComponentViewModel } from '@domain/registry/ComponentRegistry';
+src/ui/components/fields/ChipButton.tsx:5:import type { ChipViewModel } from '../../../domain/registry/ComponentRegistry';
+src/ui/components/FieldRenderer.tsx:14:} from '../../domain/registry/ComponentRegistry';
+src/ui/components/FieldRenderer.tsx:15:import { COMPONENT_TYPES } from '../../domain/registry/ComponentRegistry';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+18:export const COMPONENT_TYPES = {
+40:export interface BaseComponentViewModel {
+49:export interface CounterViewModel extends BaseComponentViewModel {
+60:export interface CurrencyViewModel extends BaseComponentViewModel {
+72:export interface TextViewModel extends BaseComponentViewModel {
+84:export interface NumberViewModel extends BaseComponentViewModel {
+96:export interface ChipViewModel {
+106:export interface ChipGroupViewModel extends BaseComponentViewModel {
+117:export interface RadioOptionViewModel {
+124:export interface RadioViewModel extends BaseComponentViewModel {
+135:export interface LabelViewModel extends BaseComponentViewModel {
+146:export interface DateViewModel extends BaseComponentViewModel {
+176:export interface ComponentMetadata {
+184:export const COMPONENT_METADATA: Record<ComponentType, ComponentMetadata> = {
+267:export function getComponentMetadata(type: ComponentType): ComponentMetadata {
+274:export function isValidComponentType(type: string): type is ComponentType {
+281:export function validateComponentRequirements(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (7 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/registry/FieldRegistry.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/RenderOrchestrator.ts:9:import { getFieldDefinition } from '@domain/registry/FieldRegistry';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+20:export interface FieldDefinition {
+39:export const FIELD_REGISTRY: Record<string, FieldDefinition> = {
+338:export function getGroupLabelToken(groupId: string): string {
+349:export function getFieldDefinition(fieldId: string): FieldDefinition | null {
+353:export function isKnownField(fieldId: string): boolean {
+357:export function getFieldsByComponentType(type: ComponentType): string[] {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+4:import { COMPONENT_TYPES, ComponentType } from './ComponentRegistry';
+7:import type { VisibilityRuleName } from '@domain/rules/fieldVisibility';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (8 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/registry/options.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/registry/FieldRegistry.ts:13:} from '@domain/registry/options';
+src/domain/rules/fieldVisibility.ts:9:import type { WoningType, AutoCount, UitkeringType } from '@domain/registry/options';
+src/domain/rules/fieldConstraints.ts:2:import { GENERAL_OPTIONS, HOUSEHOLD_OPTIONS, FINANCE_OPTIONS } from '@domain/registry/options';
+src/app/orchestrators/RenderOrchestrator.ts:8:} from '@domain/registry/options';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+2:export const GENERAL_OPTIONS = {
+10:export const HOUSEHOLD_OPTIONS = {
+33:export const FINANCE_OPTIONS = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/research/PrivacyAirlock.WIP.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/ResearchOrchestrator.WIP.ts:15:} from '@domain/research/PrivacyAirlock.WIP'; // Gebruik @ of relatief pad naar de nieuwe locatie
+src/services/transactionService.ts:5:import { toMemberType } from '@domain/research/PrivacyAirlock.WIP';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+20:export function toNumber(value: unknown, fallback = 0): number {
+32:export function parseName(fullName = ''): { firstName: string; lastName: string } {
+42:export function toMemberType(input?: string): MemberType {
+68:export function makeResearchId(localId: string): string {
+75:export function containsPII(value: unknown): boolean {
+85:export function assertNoPIILeak(obj: unknown): void {
+138:export function collectAndDistributeData(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Member } from '@core/types/core';
+3:import { MemberType, RawUIData, ResearchPayload } from '@core/types/research';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (19 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/ageBoundaryRules.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/validation/fieldValidator.ts:3:import { calculateAge } from '../rules/ageBoundaryRules';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export function getAdultMaxISO(referenceDate: Date = todayLocalNoon()): string {
+15:export function getChildMaxISO(referenceDate: Date = todayLocalNoon()): string {
+26:export function calculateAge(birthDateISO: string): number | null {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { todayLocalNoon } from '@domain/helpers/DateHydrator';
+23:import { isoDateOnlyToLocalNoon } from '@domain/helpers/DateHydrator';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/ageRules.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/rules/conditions.ts:5:import { isMinor } from './ageRules';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+3:export function isMinor(birthDate: Date, provider: TimeProvider): boolean {
+16:export function isSenior(birthDate: Date, provider: TimeProvider): boolean {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { TimeProvider } from "@domain/helpers/TimeProvider";
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (10 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/aowRules.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/rules/fieldVisibility.ts:8:import { isAowEligible } from './aowRules';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+11: export const CURRENT_AOW_AGE = 67;
+18: export function isAowEligible(ageOrUnknown: unknown): boolean {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+9: import { isNumeric } from '../rules/typeGuards';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/calculateRules.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/FinancialOrchestrator.ts:1:import { computePhoenixSummary } from '@domain/rules/calculateRules';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+3:export interface FinancialTotals {
+106:export const computePhoenixSummary = (data: unknown): FinancialTotals => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (13 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/conditions.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+21:export const isPensionAge = (leeftijd: number): boolean => leeftijd >= RETIREMENT_AGE;
+28:export const showIncomeSection = (member: Member, type: string): boolean => {
+36:export const isChildUnder15 = (leeftijd: number): boolean => leeftijd < CHILD_AGE_LIMIT;
+43:export const hasChildren = (members: Member[], provider: TimeProvider): boolean => {
+63:export const isWoningType = (
+74:export const getAutoCountValue = (autoCount: Setup['autoCount']): number => {
+86:export const isAdultInputVisible = (aantalMensen: Setup['aantalMensen']): boolean =>
+92:export const calculateChildrenCount = (
+100:export const isDebugEnabled = (flag: boolean): boolean => flag === true;
+102:export const canNavigateNext = (current: number, total: number): boolean => current < total - 1;
+103:export const canNavigateBack = (current: number): boolean => current > 0;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { z } from 'zod';
+3:import { HouseholdSchema } from '../../state/schemas/sections/household.schema';
+4:import { SetupSchema } from '../../state/schemas/sections/setup.schema';
+5:import { isMinor } from './ageRules';
+6:import { TimeProvider } from '../helpers/TimeProvider';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (8 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/dataFilters.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+9:export const dataFilterRules = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Member } from '@core/types/core';
+3:import { VisibilityContext } from './fieldVisibility';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/derivedValues.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const derivedValueRules = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { VisibilityContext } from './fieldVisibility';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (1 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/evaluateVisibilityRules.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+[2mвЂ“ geen expliciete exports gevonden вЂ“[0m
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/fieldConstraints.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/validation/fieldValidator.ts:1:import { validateField as validateFieldConstraint } from '../rules/fieldConstraints';
+src/state/schemas/sections/finance.schema.ts:3:import { FIELD_CONSTRAINTS_REGISTRY } from '@domain/rules/fieldConstraints';
+src/state/schemas/sections/setup.schema.ts:3:import { FIELD_CONSTRAINTS_REGISTRY } from '@domain/rules/fieldConstraints';
+src/state/schemas/sections/household.schema.ts:2:import { FIELD_CONSTRAINTS_REGISTRY } from '@domain/rules/fieldConstraints';
+src/state/schemas/helpers/schemaHelpers.ts:3:import type { FieldConstraint } from '@domain/rules/fieldConstraints';
+src/adapters/validation/formStateSchema.ts:2:import { FIELD_CONSTRAINTS_REGISTRY } from '@domain/rules/fieldConstraints';
+src/adapters/validation/formStateSchema.ts:3:import type { FieldConstraint } from '@domain/rules/fieldConstraints';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+9:export interface FieldConstraint {
+25:export const FIELD_CONSTRAINTS_REGISTRY: Record<string, FieldConstraint> = {
+463:export function getConstraint(fieldId: string): FieldConstraint | undefined {
+472:export function exceedsWarning(fieldId: string, value: number): boolean {
+486:export function getWarningMessage(fieldId: string, value: number): string | null {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { GENERAL_OPTIONS, HOUSEHOLD_OPTIONS, FINANCE_OPTIONS } from '@domain/registry/options';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (13 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/fieldVisibility.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/registry/FieldRegistry.ts:7:import type { VisibilityRuleName } from '@domain/rules/fieldVisibility';
+src/domain/rules/dataFilters.ts:3:import { VisibilityContext } from './fieldVisibility';
+src/domain/rules/derivedValues.ts:2:import { VisibilityContext } from './fieldVisibility';
+src/app/orchestrators/VisibilityOrchestrator.ts:4:import { fieldVisibilityRules } from '@domain/rules/fieldVisibility';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+26:export interface MemberBase {
+40:export interface HouseholdState {
+63:export interface VisibilityContext {
+75:export const fieldVisibilityRules = {
+240:export const uiHints = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+8:import { isAowEligible } from './aowRules';
+9:import type { WoningType, AutoCount, UitkeringType } from '@domain/registry/options';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (41 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/financeRules.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+31:export const mapFinanceToUndoResults = (finance: FinanceState): UndoResult[] => [
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/householdRules.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/export.ts:3:import { isSpecialInvestigationRequired } from '@domain/rules/householdRules';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+12:export const getHouseholdStatus = (members: Member[]): 'empty' | 'partial' | 'complete' => {
+32:export const HOUSEHOLD_CLASSIFICATION = {
+43:export const classifyHouseholdType = (adultCount: number): HouseholdType => {
+50:export const isSpecialInvestigationRequired = (adultCount: number): boolean => 
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Member } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (8 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/rules/typeGuards.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/validation/stepValidator.ts:2:import { isEmpty } from '../rules/typeGuards';
+src/domain/rules/aowRules.ts:9: import { isNumeric } from '../rules/typeGuards';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:  export function isEmpty(value: unknown): boolean {
+28:export function isNumeric(val: unknown): val is string | number {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (9 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/services/CSVProcessor.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/adapters/csv/CSVAdapter.ts:2:import { CSVProcessor, CSVKeys } from '@domain/services/CSVProcessor';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+3:export interface CSVKeys {
+10:export class CSVProcessor {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { toCents } from '../helpers/numbers';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (8 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/styles/ComponentStyleFactory.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/app/orchestrators/ComponentOrchestrator.ts:22:import { ComponentStyleFactory as Style } from '@domain/styles/ComponentStyleFactory';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+11:export const ComponentStyleFactory = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { Colors } from '@domain/constants/Colors';
+5:import { Tokens } from '@domain/constants/Tokens';
+7:import { ComponentStyleRule } from '@domain/registry/ComponentRegistry';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/validation/dateValidators.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/validation/fieldValidator.ts:2:import { isDigitsDatePlausible } from './dateValidators';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+6:export function isValidDateStr(iso: string): boolean {
+22:export function isDigitsDatePlausible(input: string): boolean {
+53:export function isFutureDate(iso: string): boolean {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { isoDateOnlyToLocalNoon, todayLocalNoon } from '@domain/helpers/DateHydrator';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (9 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/validation/fieldValidator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/validation/validationLog.ts:2:import { validateField } from './fieldValidator';
+src/domain/validation/stepValidator.ts:1:import { validateFieldInput } from './fieldValidator';
+src/utils/index.ts:4:export * from '@domain/validation/fieldValidator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+11:export function validateFieldInput(fieldId: string, value: unknown): string | null {
+33:export function validateField(
+52:export function validateDobNL(ddmmyyyy: unknown): string | null {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { validateField as validateFieldConstraint } from '../rules/fieldConstraints';
+2:import { isDigitsDatePlausible } from './dateValidators';
+3:import { calculateAge } from '../rules/ageBoundaryRules';
+4:import { validationMessages } from '@state/schemas/sections/validationMessages';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (10 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/validation/stepValidator.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+10:export function validateStep(
+46:export function canGoNext(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { validateFieldInput } from './fieldValidator';
+2:import { isEmpty } from '../rules/typeGuards';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (9 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/domain/validation/validationLog.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+14:export function getValidationLog(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { validateField } from './fieldValidator';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (7 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/infrastructure/clock/LocalNoonClockPort.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+2:export interface LocalNoonClockPort extends TimeProvider {}
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { TimeProvider } from "@domain/helpers/TimeProvider";
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/infrastructure/clock/LocalNoonClock.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export class LocalNoonClock {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/kernel/finance/mappers.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+9:export const mapTransactions = (transactions: CsvItem[]): CsvItem[] => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { CsvItem } from '@domain/finance/StatementIntakePipeline.WIP';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/navigation/Navigator.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+24:export default Navigator;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { FormState } from '@core/types/core';
+3:import LandingScreen from 'src/ui/screens/Wizard/LandingScreen';
+4:import WizardController from '@ui/screens/Wizard/WizardController';
+5:import MainNavigator from '@ui/navigation/MainNavigator';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (4 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/services/householdAlign.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+48:export function alignMembers(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Member } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/services/migrationService.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+[2mвЂ“ geen expliciete exports gevonden вЂ“[0m
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { DATA_KEYS, SUB_KEYS } from '@domain/constants/datakeys';
+3:import { FormState, DeepPartial, Member } from '@core/types/core';
+4:import { createMockState } from '@test-utils/index';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (10 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/services/__mocks__/transactionService.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export const TransactionService = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/services/storageShim.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/services/transactionService.ts:4:import { StorageShim } from '@services/storageShim';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+66:export const StorageShim = {
+72:export default StorageShim;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import AsyncStorage from '@react-native-async-storage/async-storage';
+3:import { AuditLogger } from '@adapters/audit/AuditLoggerAdapter'; // Aangenomen pad
+4:import type { FormState } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/services/transactionService.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+81:export const migrateTransactionsToPhoenix = async (oldState: unknown) => {
+110:export const undoLastTransaction = async () => {
+115:export const TransactionService = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { z } from 'zod';
+4:import { StorageShim } from '@services/storageShim';
+5:import { toMemberType } from '@domain/research/PrivacyAirlock.WIP';
+6:import { Logger } from '@adapters/audit/AuditLoggerAdapter';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/state/schemas/helpers/schemaHelpers.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/state/schemas/sections/finance.schema.ts:4:import { generateSchemaFromConstraint } from '@state/schemas/helpers/schemaHelpers';
+src/state/schemas/sections/setup.schema.ts:4:import { generateSchemaFromConstraint } from '@state/schemas/helpers/schemaHelpers';
+src/state/schemas/sections/household.schema.ts:3:import { generateSchemaFromConstraint } from '@state/schemas/helpers/schemaHelpers';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+21:export function enumFromConst<T extends readonly string[]>(
+50:export function generateSchemaFromConstraint(
+170:export function optionalEnumWithDefault<T extends readonly string[]>(
+198:export function isValidEnum<T extends readonly string[]>(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { z } from 'zod';
+3:import type { FieldConstraint } from '@domain/rules/fieldConstraints';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (23 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/state/schemas/sections/finance.schema.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/state/schemas/zInitialTemplate.ts:4:import { FinanceSchema } from './sections/finance.schema';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+157:export const FinanceSchema = z.object({
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { z } from 'zod';
+3:import { FIELD_CONSTRAINTS_REGISTRY } from '@domain/rules/fieldConstraints';
+4:import { generateSchemaFromConstraint } from '@state/schemas/helpers/schemaHelpers';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/state/schemas/sections/household.schema.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/rules/conditions.ts:3:import { HouseholdSchema } from '../../state/schemas/sections/household.schema';
+src/state/schemas/zInitialTemplate.ts:3:import { HouseholdSchema } from './sections/household.schema';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+35:export const HouseholdSchema = z.object({
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { z } from 'zod';
+2:import { FIELD_CONSTRAINTS_REGISTRY } from '@domain/rules/fieldConstraints';
+3:import { generateSchemaFromConstraint } from '@state/schemas/helpers/schemaHelpers';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/state/schemas/sections/setup.schema.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/rules/conditions.ts:4:import { SetupSchema } from '../../state/schemas/sections/setup.schema';
+src/state/schemas/zInitialTemplate.ts:2:import { SetupSchema } from './sections/setup.schema';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+44:export const SetupSchema = z.object({
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { z } from 'zod';
+3:import { FIELD_CONSTRAINTS_REGISTRY } from '@domain/rules/fieldConstraints';
+4:import { generateSchemaFromConstraint } from '@state/schemas/helpers/schemaHelpers';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/state/schemas/sections/validationMessages.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/validation/fieldValidator.ts:4:import { validationMessages } from '@state/schemas/sections/validationMessages';
+src/adapters/audit/AuditLoggerAdapter.ts:1:import { validationMessages } from '@state/schemas/sections/validationMessages';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+2:export const validationMessages = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/state/schemas/zInitialTemplate.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+6:export const FormStateSchema = z.object({
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { z } from 'zod';
+2:import { SetupSchema } from './sections/setup.schema';
+3:import { HouseholdSchema } from './sections/household.schema';
+4:import { FinanceSchema } from './sections/finance.schema';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/assertions/migrationAssertions.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/index.ts:7:export * from './assertions/migrationAssertions';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export function assertMemberTypePreserved(migratedMembers: any[]) {
+15:export function assertValidMember(member: any) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/factories/csvFactory.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/index.ts:6:export * from './factories/csvFactory';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export const csvFactory = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/factories/memberFactory.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/index.ts:5:export * from './factories/memberFactory';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+8:export function makeMember(
+30:export function makeMembers(
+40:export function makeMixedHousehold(adults = 2, children = 0): Member[] {
+48:export function makeLegacyMember(): any {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import type { Member } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/factories/MockIdProvider.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+11:export const evaluateRules = (_data: unknown) => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/factories/stateFactory.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/render/renderers.tsx:12:import { makePhoenixState } from '../factories/stateFactory';
+src/test-utils/index.ts:4:export * from './factories/stateFactory';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+14:export function createMockState(overrides: DeepPartial<FormState> = {}): FormState {
+48:export function makePhoenixState(overrides?: DeepPartial<FormState>): FormState {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { DATA_KEYS } from '@domain/constants/datakeys';
+3:import type { FormState } from '@core/types/core';
+4:import { deepMerge } from '@utils/objects';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/index.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/services/migrationService.ts:4:import { createMockState } from '@test-utils/index';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+2:export * from './render/renderers';
+3:export * from './render/providers';
+4:export * from './factories/stateFactory';
+5:export * from './factories/memberFactory';
+6:export * from './factories/csvFactory';
+7:export * from './assertions/migrationAssertions';
+8:export * from './utils/name';
+9:export * from './perf/measure';
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/jest.setup.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+[2mвЂ“ geen expliciete exports gevonden вЂ“[0m
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import 'react-native-gesture-handler/jestSetup';
+4:  require('@react-native-async-storage/async-storage/jest/async-storage-mock')
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/perf/measure.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/index.ts:9:export * from './perf/measure';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+[2mвЂ“ geen expliciete exports gevonden вЂ“[0m
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (1 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/render/providers.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/index.ts:3:export * from './render/providers';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+57:export function Providers({ children, state, dispatch }: ProvidersProps) {
+75:export default Providers;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import React from 'react';
+3:import { ThemeProvider } from '@app/context/ThemeContext';
+4:import { FormContext } from '@app/context/FormContext';
+5:import { FormState } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (4 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/render/renderers.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/index.ts:2:export * from './render/renderers';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+27:export function render(
+51:export const renderWithState = render;
+53:export function renderHookWithProviders<TProps, TResult>(
+82:export const expectTextAsync = async (text: string | RegExp) => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import React from 'react';
+9:import { ThemeProvider } from '@app/context/ThemeContext';
+10:import { FormContext } from '@app/context/FormContext';
+11:import { FormState } from '@core/types/core';
+12:import { makePhoenixState } from '../factories/stateFactory';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/test-utils/utils/name.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/index.ts:8:export * from './utils/name';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export function splitNameForUX(fullName: string = ''): { firstName: string; lastName: string } {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (1 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/types/common.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+17:export interface ValidationResult {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/types/navigation.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+17:export interface ScreenProps<T extends keyof RootStackParamList = keyof RootStackParamList> {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { NavigationProp, RouteProp } from '@react-navigation/native';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/types/react-native.d.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+8:export interface StylableProps {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (1 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/CollapsibleSection.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/screens/Wizard/WizardPage.tsx:8:import { CollapsibleSection } from '@ui/components/CollapsibleSection';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+44:export const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import React, { useState } from 'react';
+3:import { View, Text, TouchableOpacity } from 'react-native';
+4:import { useAppStyles } from '@styles/useAppStyles';
+5:import { labelFromToken } from '@domain/constants/labelResolver';
+
+[1m4) Bevat state? (heuristiek)[0m
+ja (1 hits)
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/FieldRenderer.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/screens/Wizard/WizardPage.tsx:7:import { FieldRenderer } from '@ui/components/FieldRenderer';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+40:export const FieldRenderer: React.FC<FieldRendererProps> = ({ viewModel }) => {
+169:export default FieldRenderer;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import React from 'react';
+4:import { View, Text } from 'react-native';
+15:import { COMPONENT_TYPES } from '../../domain/registry/ComponentRegistry';
+18:import InputCounter from './fields/InputCounter';
+19:import MoneyInput from './fields/MoneyInput';
+20:import ChipButton from './fields/ChipButton';
+21:import FormField from './fields/FormField';
+22:import DateField from './fields/DateField';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/ChipButton.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/components/FieldRenderer.tsx:20:import ChipButton from './fields/ChipButton';
+src/ui/components/fields/index.ts:5:export * from './ChipButton';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+32:export default ChipButton;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import React from 'react';
+4:import { TouchableOpacity, Text } from 'react-native';
+5:import type { ChipViewModel } from '../../../domain/registry/ComponentRegistry';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/DateField.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/components/fields/index.ts:6:export * from './DateField';
+src/ui/components/FieldRenderer.tsx:22:import DateField from './fields/DateField';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+75:export default DateField;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { Platform, View, Text, Pressable } from 'react-native';
+3:import DateTimePicker, { DateTimePickerEvent } from '@react-native-community/datetimepicker';
+4:import { useAppStyles } from '@ui/styles/useAppStyles';
+5:import { isoDateOnlyToLocalNoon, toISOFromLocalNoon, todayLocalNoon, formatToDisplay } from '@domain/helpers/DateHydrator';
+
+[1m4) Bevat state? (heuristiek)[0m
+ja (1 hits)
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (11 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/FormField.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/components/fields/index.ts:3:export * from './FormField';
+src/ui/components/FieldRenderer.tsx:21:import FormField from './fields/FormField';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+17:export const FormField: React.FC<FormFieldProps> = ({
+37:export default FormField;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import React from 'react';
+3:import { View, Text, TextInput } from 'react-native';
+4:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/index.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/services/migrationService.ts:4:import { createMockState } from '@test-utils/index';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+3:export * from './FormField';
+5:export * from './ChipButton';
+6:export * from './DateField';
+7:export * from './InputCounter';
+8:export * from './MoneyField';
+9:export * from './MoneyInput';
+10:export * from './ToggleSwitch';
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/InputCounter.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/components/fields/index.ts:7:export * from './InputCounter';
+src/ui/components/FieldRenderer.tsx:18:import InputCounter from './fields/InputCounter';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+19:export interface InputCounterProps {
+32:export const InputCounter: React.FC<InputCounterProps> = ({
+94:export default InputCounter;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import React from 'react';
+3:import { View, Text, TouchableOpacity } from 'react-native';
+4:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (8 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/MoneyField.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/components/fields/index.ts:8:export * from './MoneyField';
+src/ui/screens/DailyInput/DailyInputScreen.tsx:3:import { MoneyField } from '@components/fields/MoneyField';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export interface MoneyFieldProps {
+11:export const MoneyField: React.FC<MoneyFieldProps> = ({ label, amount, onAmountChange, error }) => {
+35:export default MoneyField;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, Text, TextInput } from 'react-native';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/MoneyInput.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/components/FieldRenderer.tsx:19:import MoneyInput from './fields/MoneyInput';
+src/ui/components/fields/index.ts:9:export * from './MoneyInput';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+47:export default MoneyInput;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, Text, TextInput } from 'react-native';
+3:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (4 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/ToggleSwitch.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/components/fields/index.ts:10:export * from './ToggleSwitch';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+38:export default ToggleSwitch;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, TouchableOpacity, Text } from 'react-native';
+3:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/fields/types.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+3:export interface BaseFieldProps {
+9:export interface ChipButtonProps extends TouchableOpacityProps, BaseFieldProps {
+14:export interface ToggleSwitchProps extends BaseFieldProps {
+20:export interface FormFieldProps extends TextInputProps, BaseFieldProps {
+24:export interface DateFieldProps extends BaseFieldProps {
+31:export interface FieldRendererProps {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { TouchableOpacityProps, TextInputProps } from 'react-native';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (9 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/components/FinancialSummary.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+16:export const FinancialSummary: React.FC<Props> = ({ data }) => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, Text } from 'react-native';
+3:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/navigation/MainNavigator.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/App.tsx:5:import MainNavigator from '@ui/navigation/MainNavigator';
+src/navigation/Navigator.tsx:5:import MainNavigator from '@ui/navigation/MainNavigator';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+22:export default MainNavigator;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import React from 'react';
+2:import { useFormContext as useForm } from '@app/context/FormContext';
+3:import LandingScreen from '../screens/Wizard/LandingScreen';
+4:import WizardController from '../screens/Wizard/WizardController';
+5:import DashboardScreen from '../screens/Dashboard/DashboardScreen';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (4 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/CSV/CsvUploadScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+23:export const CsvUploadScreen: React.FC<CsvUploadScreenProps> = ({
+104:export default CsvUploadScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import React, { useState } from 'react';
+2:import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, StyleSheet } from 'react-native';
+3:import { UI_SECTIONS } from '@domain/constants/uiSections';
+4:import { placeholderStyles } from '@ui/styles/modules/placeholderStyles';
+5:import { Logger } from '@adapters/audit/AuditLoggerAdapter';
+
+[1m4) Bevat state? (heuristiek)[0m
+ja (2 hits)
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/DailyInput/DailyInputScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+7:export const DailyInputScreen: React.FC = () => {
+26:export default DailyInputScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, ScrollView } from 'react-native';
+3:import { MoneyField } from '@components/fields/MoneyField';
+4:import { useAppStyles } from '@styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Daily/UndoScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+14:export const UndoScreen: React.FC = () => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import React from 'react';
+3:import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+4:import { useTransactionHistory } from '@app/hooks/useTransactionHistory';
+5:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (4 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Dashboard/DashboardScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/navigation/MainNavigator.tsx:5:import DashboardScreen from '../screens/Dashboard/DashboardScreen';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const DashboardScreen = () => {
+12:export default DashboardScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, Text } from 'react-native';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Options/OptionsScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+64:export default OptionsScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import * as React from 'react';
+4:import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+5:import { useSafeAreaInsets } from 'react-native-safe-area-context';
+6:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Reset/ResetScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+80:export default ResetScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import * as React from 'react';
+3:import { View, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
+4:import { useSafeAreaInsets } from 'react-native-safe-area-context';
+5:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Settings/SettingsScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+78:export default SettingsScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import * as React from 'react';
+3:import { View, Text, TouchableOpacity, ScrollView, Switch } from 'react-native';
+4:import { useSafeAreaInsets } from 'react-native-safe-area-context';
+5:import { useAppStyles } from '@ui/styles/useAppStyles';
+6:import { useTheme } from '@app/context/ThemeContext';
+
+[1m4) Bevat state? (heuristiek)[0m
+ja (1 hits)
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/CriticalErrorScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+18:export default CriticalErrorScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, Text, Button } from 'react-native';
+3:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/LandingScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/navigation/Navigator.tsx:3:import LandingScreen from 'src/ui/screens/Wizard/LandingScreen';
+src/ui/navigation/MainNavigator.tsx:3:import LandingScreen from '../screens/Wizard/LandingScreen';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+57:export default LandingScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, Text, TouchableOpacity } from 'react-native';
+3:import { useSafeAreaInsets } from 'react-native-safe-area-context';
+4:import { useAppStyles } from '@styles/useAppStyles';
+5:import { useFormContext as useForm } from '@app/context/FormContext';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (4 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/pages/1setupHousehold.config.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export const setupHouseholdConfig = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/pages/2detailsHousehold.config.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const detailsHouseholdConfig = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { UI_SECTIONS } from '@domain/constants/uiSections';
+2:import { UX_TOKENS } from '@domain/constants/uxTokens';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/pages/3incomeDetails.config.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+7:export const incomeDetailsConfig = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/pages/4fixedExpenses.config.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+5:export const fixedExpensesConfig = {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/SplashScreen.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+16:export default SplashScreen;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, Text, ActivityIndicator } from 'react-native';
+3:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/WelcomeWizard.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+15:export default WelcomeWizard;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import * as React from 'react';
+2:import { View, Text } from 'react-native';
+3:import { useAppStyles } from '@ui/styles/useAppStyles';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/WizardController.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/navigation/Navigator.tsx:4:import WizardController from '@ui/screens/Wizard/WizardController';
+src/ui/navigation/MainNavigator.tsx:4:import WizardController from '../screens/Wizard/WizardController';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+[2mвЂ“ geen expliciete exports gevonden вЂ“[0m
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/screens/Wizard/WizardPage.tsx
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+31:export const WizardPage: React.FC<WizardPageProps> = ({ config }) => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+4:import React from 'react';
+5:import { View, Text, ScrollView } from 'react-native';
+6:import { useAppStyles } from '@styles/useAppStyles';
+7:import { FieldRenderer } from '@ui/components/FieldRenderer';
+8:import { CollapsibleSection } from '@ui/components/CollapsibleSection';
+9:import { useFormContext } from '@app/context/FormContext';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/selectors/financialSelectors.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+9:export const selectFinancialSummaryVM = (state: FormState) => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import type { FormState } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/selectors/householdSelectors.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+[2mвЂ“ geen matches вЂ“[0m
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+14:export const selectHouseholdStats = createSelector(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+1:import { createSelector } from 'reselect';
+2:import { FormState } from '@core/types/core';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (3 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Alerts.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:13:export { makeAlerts } from './Alerts';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+10:export function makeAlerts(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Tokens, Type } from '../Tokens';
+3:import type { ColorScheme } from '../Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Buttons.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:7:export { makeButtons } from './Buttons';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+80:export function makeButtons(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Platform } from 'react-native';
+3:import { Space, Type, Radius, Tokens } from '@domain/constants/Tokens';
+4:import type { ColorScheme } from '@domain/constants/Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Cards.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:8:export { makeCards } from './Cards';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+47:export function makeCards(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Platform } from 'react-native';
+3:import { Space, Radius, Type } from '@domain/constants/Tokens';
+4:import type { ColorScheme } from '@domain/constants/Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Checkboxes.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:15:export { makeCheckboxes } from './Checkboxes';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+6:export function makeCheckboxes(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { Sizes } from '../Tokens';
+4:import type { ColorScheme } from '../Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Chips.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:9:export { makeChips } from './Chips';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+46:export function makeChips(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Space, Type, Radius } from '@domain/constants/Tokens';
+3:import type { ColorScheme } from '@domain/constants/Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Containers.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:17:export { makeContainers } from './Containers';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+11:export function makeContainers(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { ColorScheme } from '../Colors';
+3:import { Tokens } from '../Tokens';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Dashboard.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:10:export { makeDashboard } from './Dashboard';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+11:export function makeDashboard(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { Platform } from 'react-native';
+4:import { Space, Type, Radius, Tokens } from '@domain/constants/Tokens';
+5:import type { ColorScheme } from '@domain/constants/Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Forms.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:6:export { makeForms } from './Forms';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+89:export function makeForms(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { ViewStyle, TextStyle } from 'react-native';
+3:import { Space, Type, Radius } from '@domain/constants/Tokens';
+4:import type { ColorScheme } from '@domain/constants/Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Header.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:5:export { makeHeader } from './Header';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+11:export function makeHeader(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { Platform } from 'react-native';
+4:import { Space, Type, Tokens } from '@domain/constants/Tokens';
+5:import type { ColorScheme } from '@domain/constants/Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Helpers.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:16:export { makeHelpers } from './Helpers';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+78:export function makeHelpers(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Space, Type } from '../Tokens';
+3:import type { ColorScheme } from '../Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/index.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/services/migrationService.ts:4:import { createMockState } from '@test-utils/index';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export { makeLayout } from './Layout';
+5:export { makeHeader } from './Header';
+6:export { makeForms } from './Forms';
+7:export { makeButtons } from './Buttons';
+8:export { makeCards } from './Cards';
+9:export { makeChips } from './Chips';
+10:export { makeDashboard } from './Dashboard';
+11:export { makeSummary } from './Summary';
+12:export { makeTypography } from './Typography';
+13:export { makeAlerts } from './Alerts';
+14:export { makeToggles } from './Toggles';
+15:export { makeCheckboxes } from './Checkboxes';
+16:export { makeHelpers } from './Helpers';
+17:export { makeContainers } from './Containers';
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Layout.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:4:export { makeLayout } from './Layout';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+10:export function makeLayout(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { Space } from '@domain/constants/Tokens';
+4:import type { ColorScheme } from '@domain/constants/Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/placeholderStyles.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/screens/CSV/CsvUploadScreen.tsx:4:import { placeholderStyles } from '@ui/styles/modules/placeholderStyles';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const placeholderStyles = StyleSheet.create({
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { StyleSheet } from 'react-native';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Summary.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:11:export { makeSummary } from './Summary';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+47:export function makeSummary(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Space, Type, Radius } from '@domain/constants/Tokens';
+3:import type { ColorScheme } from '@domain/constants/Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Toggles.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:14:export { makeToggles } from './Toggles';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+6:export function makeToggles(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { Space, Type } from '../Tokens';
+4:import type { ColorScheme } from '../Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/modules/Typography.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/styles/modules/index.ts:12:export { makeTypography } from './Typography';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+47:export function makeTypography(c: ColorScheme) {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+2:import { Tokens, Type } from '../Tokens';
+3:import type { ColorScheme } from '../Colors';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/ui/styles/useAppStyles.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/ui/screens/Settings/SettingsScreen.tsx:5:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/screens/Daily/UndoScreen.tsx:5:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/screens/Wizard/SplashScreen.tsx:3:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/screens/Wizard/LandingScreen.tsx:4:import { useAppStyles } from '@styles/useAppStyles';
+src/ui/screens/Wizard/WelcomeWizard.tsx:3:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/screens/Wizard/CriticalErrorScreen.tsx:3:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/screens/Wizard/WizardPage.tsx:6:import { useAppStyles } from '@styles/useAppStyles';
+src/ui/screens/DailyInput/DailyInputScreen.tsx:4:import { useAppStyles } from '@styles/useAppStyles';
+src/ui/screens/Reset/ResetScreen.tsx:5:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/screens/Options/OptionsScreen.tsx:6:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/components/fields/FormField.tsx:4:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/components/fields/MoneyInput.tsx:3:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/components/fields/ToggleSwitch.tsx:3:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/components/fields/DateField.tsx:4:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/components/fields/InputCounter.tsx:4:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/components/FinancialSummary.tsx:3:import { useAppStyles } from '@ui/styles/useAppStyles';
+src/ui/components/CollapsibleSection.tsx:4:import { useAppStyles } from '@styles/useAppStyles';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+27:export function getAppStyles(theme: Theme) {
+60:export function useAppStyles() {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+3:import { StyleSheet } from 'react-native';
+4:import { useTheme } from '@app/context/ThemeContext';
+5:import { Colors, Theme } from '@domain/constants/Colors';
+6:import { Tokens } from '@domain/constants/Tokens';
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (1 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/utils/csvHelper.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/utils/index.ts:7:export * from './csvHelper';
+src/adapters/csv/CSVAdapter.ts:1:import { parseRawCsv } from '@utils/csvHelper';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+7:export const parseRawCsv = (text: string): Record<string, string>[] => {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (6 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/utils/index.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/services/migrationService.ts:4:import { createMockState } from '@test-utils/index';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+2:export * from '@domain/helpers/frequency';
+3:export * from '@domain/helpers/numbers';
+4:export * from '@domain/validation/fieldValidator';
+7:export * from './csvHelper';
+8:export * from './objects';
+9:export * from './ping';
+10:export * from './strings';
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/utils/objects.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/test-utils/factories/stateFactory.ts:4:import { deepMerge } from '@utils/objects';
+src/utils/index.ts:8:export * from './objects';
+src/app/context/formReducer.ts:2:import { deepMerge } from '@utils/objects';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+20:export function deepMerge<T extends Record<string, unknown>>(
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (7 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/utils/ping.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/utils/index.ts:9:export * from './ping';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+4:export const ping = (_state?: MinimalPhoenixState): 'pong' => {
+9:export default ping;
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+ja (2 hits)
+
+[1m6) Laag-overtreding check[0m
+OK
+
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[34m[1mBESTAND:[0m src/utils/strings.ts
+вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв
+[1m1) GeГЇmporteerd door (reverse imports)[0m
+src/domain/helpers/numbers.ts:2:import { cleanName } from '@utils/strings';
+src/utils/index.ts:10:export * from './strings';
+
+[1m2) Exporteert (publiek contract in dit bestand)[0m
+9:export function cleanName(input: string | undefined | null, max: number = 25): string {
+
+[1m3) Roept aan (outgoing imports / dependencies)[0m
+[2mвЂ“ geen imports gevonden вЂ“[0m
+
+[1m4) Bevat state? (heuristiek)[0m
+nee
+
+[1m5) Bevat beslislogica? (heuristiek)[0m
+nee
+
+[1m6) Laag-overtreding check[0m
+OK
+
+[1m=== DUBBELE TYPE DEFINITIES ===[0m
+вљ пёЏ ValidationResult gedefinieerd 3x
+вљ пёЏ Member gedefinieerd 3x
+вљ пёЏ FormState gedefinieerd 3x
+вљ пёЏ WoningType gedefinieerd 2x
+вљ пёЏ VisibilityContext gedefinieerd 2x
+вљ пёЏ UndoResult gedefinieerd 2x
+вљ пёЏ ToggleSwitchProps gedefinieerd 2x
+вљ пёЏ SetupData gedefinieerd 2x
+вљ пёЏ PageViewModel gedefinieerd 2x
+вљ пёЏ IncomeFrequency gedefinieerd 2x
+вљ пёЏ ImportResult gedefinieerd 2x
+вљ пёЏ Household gedefinieerd 2x
+вљ пёЏ FormAction gedefinieerd 2x
+вљ пёЏ Finance gedefinieerd 2x
+вљ пёЏ FieldViewModel gedefinieerd 2x
+вљ пёЏ Expenses gedefinieerd 2x
+вљ пёЏ DataSection gedefinieerd 2x
+вљ пёЏ CsvItem gedefinieerd 2x
+вљ пёЏ ComponentViewModel gedefinieerd 2x
+вљ пёЏ AutoCount gedefinieerd 2x
+
+
+[36m[1mRapport geschreven naar:[0m ./analysis_report.txt
