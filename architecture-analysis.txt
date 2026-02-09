@@ -1,0 +1,594 @@
+Architecture Analysis Report | 2026-02-09T09:12:27Z
+Repo root: /home/user/pre7
+Git HEAD: 5d17781
+
+
+
+========================================================
+===== PROJECT STRUKTUUR (tree src) =====
+========================================================
+
+src
+├── adapters
+│   ├── audit
+│   │   └── AuditLoggerAdapter.ts
+│   ├── csv
+│   │   ├── CSVAdapter.ts
+│   │   └── csvService.ts
+│   ├── StateWriter
+│   │   └── StateWriterAdapter.ts
+│   ├── transaction
+│   │   └── stateful.ts
+│   ├── undo
+│   │   ├── __tests__
+│   │   └── stateful.ts
+│   ├── validation
+│   │   ├── formStateSchema.ts
+│   │   └── validateAtBoundary.ts
+│   └── valueProviders
+│       └── __tests__
+├── app
+│   ├── context
+│   │   ├── __tests__
+│   │   ├── FormContext.tsx
+│   │   ├── formReducer.ts
+│   │   ├── initialFormState.ts
+│   │   ├── ThemeContext.tsx
+│   │   ├── useStableOrchestrator.ts
+│   │   └── WizardContext.tsx
+│   ├── hooks
+│   │   ├── __tests__
+│   │   ├── transactionActions.ts
+│   │   └── useTransactionHistory.ts
+│   └── orchestrators
+│       ├── interfaces
+│       ├── managers
+│       ├── __tests__
+│       ├── ComponentOrchestrator.ts
+│       ├── export.ts
+│       ├── FinancialOrchestrator.ts
+│       ├── FormStateOrchestrator.ts
+│       ├── ImportOrchestrator.ts
+│       ├── MasterOrchestrator.ts
+│       ├── NavigationOrchestrator.ts
+│       ├── RenderOrchestrator.ts
+│       ├── ResearchOrchestrator.WIP.ts
+│       ├── ValidationOrchestrator.ts
+│       └── VisibilityOrchestrator.ts
+├── config
+│   ├── features.ts
+│   └── WizStrings.ts
+├── core
+│   └── types
+│       ├── core.ts
+│       └── research.ts
+├── domain
+│   ├── constants
+│   │   ├── Colors.ts
+│   │   ├── datakeys.ts
+│   │   ├── labelResolver.ts
+│   │   ├── labels.ts
+│   │   ├── options.ts
+│   │   ├── registry.ts
+│   │   ├── Tokens.ts
+│   │   ├── uiSections.ts
+│   │   └── uxTokens.ts
+│   ├── finance
+│   │   └── StatementIntakePipeline.WIP.ts
+│   ├── helpers
+│   │   ├── DateHydrator.ts
+│   │   ├── frequency.ts
+│   │   ├── numbers.ts
+│   │   └── TimeProvider.ts
+│   ├── interfaces
+│   │   ├── __tests__
+│   │   ├── index.ts
+│   │   ├── StateWriter.ts
+│   │   └── ValueProvider.ts
+│   ├── registry
+│   │   ├── ComponentRegistry.ts
+│   │   ├── FieldRegistry.ts
+│   │   └── options.ts
+│   ├── research
+│   │   └── PrivacyAirlock.WIP.ts
+│   ├── rules
+│   │   ├── __tests__
+│   │   ├── ageBoundaryRules.ts
+│   │   ├── ageRules.ts
+│   │   ├── aowRules.ts
+│   │   ├── calculateRules.ts
+│   │   ├── conditions.ts
+│   │   ├── dataFilters.ts
+│   │   ├── derivedValues.ts
+│   │   ├── evaluateVisibilityRules.ts
+│   │   ├── fieldConstraints.ts
+│   │   ├── fieldVisibility.ts
+│   │   ├── financeRules.ts
+│   │   ├── householdRules.ts
+│   │   └── typeGuards.ts
+│   ├── services
+│   │   ├── __tests__
+│   │   └── CSVProcessor.ts
+│   ├── styles
+│   │   └── ComponentStyleFactory.ts
+│   ├── __tests__
+│   │   ├── BT-04I_precision.test.ts
+│   │   ├── evaluateDomainRules.test.ts
+│   │   └── household.test.ts
+│   ├── validation
+│   │   ├── __tests__
+│   │   └── dateValidators.ts
+│   ├── wizard
+│   │   └── __tests__
+│   └── index.ts
+├── infrastructure
+│   └── clock
+│       ├── LocalNoonClockPort.ts
+│       └── LocalNoonClock.ts
+├── kernel
+│   └── finance
+│       ├── __tests__
+│       └── mappers.ts
+├── navigation
+│   └── Navigator.tsx
+├── services
+│   ├── __mocks__
+│   │   └── transactionService.ts
+│   ├── __tests__
+│   │   ├── __snapshots__
+│   │   ├── BT-04_migration_audit.test.ts
+│   │   ├── csvService.integration.test.ts
+│   │   ├── csvService.test.tsx
+│   │   ├── dataOrchestrator.test.tsx
+│   │   ├── householdAlign.test.ts
+│   │   ├── idempotency.test.ts
+│   │   ├── migration.fixture.test.ts
+│   │   ├── migration.members.test.ts
+│   │   ├── migrationService.test.ts
+│   │   ├── privacyHelpers.test.ts
+│   │   ├── storage.migration.test.ts
+│   │   ├── storageShim.test.ts
+│   │   └── storage.test.ts
+│   ├── householdAlign.ts
+│   ├── migrationService.ts
+│   ├── storageShim.ts
+│   └── transactionService.ts
+├── state
+│   └── schemas
+│       ├── helpers
+│       ├── sections
+│       ├── __tests__
+│       └── zInitialTemplate.ts
+├── __tests__
+│   ├── regression
+│   │   └── ui-decoupling.integrity.test.ts
+│   ├── App.projector.test.tsx
+│   ├── CoreSanity.test.tsx
+│   ├── LandingScreen_Isolation.test.tsx
+│   ├── ScreenSanity.test.tsx
+│   └── WAI009_FocusManagement.test.tsx
+├── test-utils
+│   ├── assertions
+│   │   └── migrationAssertions.ts
+│   ├── factories
+│   │   ├── csvFactory.ts
+│   │   ├── memberFactory.ts
+│   │   ├── MockIdProvider.ts
+│   │   └── stateFactory.ts
+│   ├── perf
+│   │   └── measure.ts
+│   ├── render
+│   │   ├── providers.tsx
+│   │   └── renderers.tsx
+│   ├── utils
+│   │   └── name.ts
+│   ├── index.ts
+│   └── jest.setup.tsx
+├── types
+│   ├── common.ts
+│   ├── navigation.ts
+│   └── react-native.d.ts
+├── ui
+│   ├── components
+│   │   ├── fields
+│   │   ├── __tests__
+│   │   ├── CollapsibleSection.tsx
+│   │   ├── FieldRenderer.tsx
+│   │   └── FinancialSummary.tsx
+│   ├── navigation
+│   │   └── MainNavigator.tsx
+│   ├── screens
+│   │   ├── CSV
+│   │   ├── Daily
+│   │   ├── DailyInput
+│   │   ├── Dashboard
+│   │   ├── Options
+│   │   ├── Reset
+│   │   ├── Settings
+│   │   └── Wizard
+│   ├── selectors
+│   │   ├── __tests__
+│   │   ├── financialSelectors.ts
+│   │   └── householdSelectors.ts
+│   └── styles
+│       ├── modules
+│       ├── __tests__
+│       └── useAppStyles.ts
+├── utils
+│   ├── __tests__
+│   │   ├── __snapshots__
+│   │   ├── date.test.ts
+│   │   ├── frequency.test.ts
+│   │   ├── logger.test.ts
+│   │   ├── numbers.test.ts
+│   │   ├── ping.test.ts
+│   │   └── strings.test.ts
+│   ├── csvHelper.ts
+│   ├── index.ts
+│   ├── objects.ts
+│   ├── ping.ts
+│   └── strings.ts
+└── App.tsx
+
+87 directories, 134 files
+
+
+========================================================
+===== CONTEXT ANALYSE =====
+========================================================
+
+--------------------------------------------------------
+FILE: src/app/context/FormContext.tsx
+  Lines: 75 | Size: 2135 bytes
+  [Structure] Providers:
+    37:export const FormProvider: React.FC<FormProviderProps> = ({
+  [Structure] Custom Hooks:
+    66:export const useFormContext = () => {
+  [Dependencies] Imports (Top 5):
+          1 ./useStableOrchestrator
+          1 ./initialFormState
+          1 import React, {
+          1 ./formReducer
+          1 @core/types/core
+  [Risk] Side Effects:
+--------------------------------------------------------
+FILE: src/app/context/ThemeContext.tsx
+  Lines: 52 | Size: 1545 bytes
+  [Structure] Providers:
+    17:export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  [Structure] Custom Hooks:
+    46:export const useTheme = () => {
+  [Dependencies] Imports (Top 5):
+          1 @react-native-async-storage/async-storage
+          1 react
+          1 @adapters/audit/AuditLoggerAdapter
+  [Risk] Side Effects:
+    3:import AsyncStorage from '@react-native-async-storage/async-storage';
+    20:  React.useEffect(() => {
+    23:        const saved = await AsyncStorage.getItem(THEME_KEY);
+    37:      await AsyncStorage.setItem(THEME_KEY, newTheme);
+--------------------------------------------------------
+FILE: src/app/context/WizardContext.tsx
+  Lines: 56 | Size: 1829 bytes
+  [Structure] Providers:
+    25:export const WizardProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  [Structure] Custom Hooks:
+    51:export const useWizard = () => {
+  [Dependencies] Imports (Top 5):
+          1 react
+          1 ./FormContext
+  [Risk] Side Effects:
+
+
+========================================================
+===== UI ANALYSE =====
+========================================================
+
+Totaal aantal UI bestanden: 49
+
+--------------------------------------------------------
+FILE: src/ui/components/CollapsibleSection.tsx
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+    5:import { labelFromToken } from '@domain/constants/labelResolver';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/FieldRenderer.tsx
+  Complexity Score (proxy): 10
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/ChipButton.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/DateField.tsx
+  Complexity Score (proxy): 10
+  [Arch Check] Domain/Orchestrator Imports:
+    5:import { isoDateOnlyToLocalNoon, toISOFromLocalNoon, todayLocalNoon, formatToDisplay } from '@domain/helpers/DateHydrator';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/FormField.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/index.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/InputCounter.tsx
+  Complexity Score (proxy): 3
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/MoneyField.tsx
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/MoneyInput.tsx
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/ToggleSwitch.tsx
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/fields/types.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/components/FinancialSummary.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/navigation/MainNavigator.tsx
+  Complexity Score (proxy): 4
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/CSV/CsvUploadScreen.tsx
+  Complexity Score (proxy): 6
+  [Arch Check] Domain/Orchestrator Imports:
+    3:import { UI_SECTIONS } from '@domain/constants/uiSections';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/DailyInput/DailyInputScreen.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Daily/UndoScreen.tsx
+  Complexity Score (proxy): 5
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Dashboard/DashboardScreen.tsx
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Options/OptionsScreen.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Reset/ResetScreen.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Settings/SettingsScreen.tsx
+  Complexity Score (proxy): 6
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/CriticalErrorScreen.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/LandingScreen.tsx
+  Complexity Score (proxy): 2
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/pages/1setupHousehold.config.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+    2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+    3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/pages/2detailsHousehold.config.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+    1:import { UI_SECTIONS } from '@domain/constants/uiSections';
+    2:import { UX_TOKENS } from '@domain/constants/uxTokens';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/pages/3incomeDetails.config.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+    2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+    3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/pages/4fixedExpenses.config.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+    2:import { UI_SECTIONS } from '@domain/constants/uiSections';
+    3:import { UX_TOKENS } from '@domain/constants/uxTokens';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/SplashScreen.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/WelcomeWizard.tsx
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/WizardController.tsx
+  Complexity Score (proxy): 2
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/screens/Wizard/WizardPage.tsx
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/selectors/financialSelectors.ts
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+    6: * * ✅ Geen imports van @kernel of @domain (Integrity Guard blij)
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+    9:export const selectFinancialSummaryVM = (state: FormState) => {
+--------------------------------------------------------
+FILE: src/ui/selectors/householdSelectors.ts
+  Complexity Score (proxy): 2
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+    4:const selectSetupData = (state: FormState): unknown => {
+    22:    const cleanAdultCount = (aantal !== null && aantal !== undefined) ? aantal : 0;
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Alerts.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Buttons.ts
+  Complexity Score (proxy): 4
+  [Arch Check] Domain/Orchestrator Imports:
+    3:import { Space, Type, Radius, Tokens } from '@domain/constants/Tokens';
+    4:import type { ColorScheme } from '@domain/constants/Colors';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Cards.ts
+  Complexity Score (proxy): 4
+  [Arch Check] Domain/Orchestrator Imports:
+    3:import { Space, Radius, Type } from '@domain/constants/Tokens';
+    4:import type { ColorScheme } from '@domain/constants/Colors';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Checkboxes.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Chips.ts
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+    2:import { Space, Type, Radius } from '@domain/constants/Tokens';
+    3:import type { ColorScheme } from '@domain/constants/Colors';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Containers.ts
+  Complexity Score (proxy): 2
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Dashboard.ts
+  Complexity Score (proxy): 3
+  [Arch Check] Domain/Orchestrator Imports:
+    4:import { Space, Type, Radius, Tokens } from '@domain/constants/Tokens';
+    5:import type { ColorScheme } from '@domain/constants/Colors';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Forms.ts
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+    3:import { Space, Type, Radius } from '@domain/constants/Tokens';
+    4:import type { ColorScheme } from '@domain/constants/Colors';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Header.ts
+  Complexity Score (proxy): 4
+  [Arch Check] Domain/Orchestrator Imports:
+    4:import { Space, Type, Tokens } from '@domain/constants/Tokens';
+    5:import type { ColorScheme } from '@domain/constants/Colors';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Helpers.ts
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/index.ts
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Layout.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+    3:import { Space } from '@domain/constants/Tokens';
+    4:import type { ColorScheme } from '@domain/constants/Colors';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/placeholderStyles.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Summary.ts
+  Complexity Score (proxy): 2
+  [Arch Check] Domain/Orchestrator Imports:
+    2:import { Space, Type, Radius } from '@domain/constants/Tokens';
+    3:import type { ColorScheme } from '@domain/constants/Colors';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Toggles.ts
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/modules/Typography.ts
+  Complexity Score (proxy): 0
+  [Arch Check] Domain/Orchestrator Imports:
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+--------------------------------------------------------
+FILE: src/ui/styles/useAppStyles.ts
+  Complexity Score (proxy): 1
+  [Arch Check] Domain/Orchestrator Imports:
+    5:import { Colors, Theme } from '@domain/constants/Colors';
+    6:import { Tokens } from '@domain/constants/Tokens';
+  [Arch Check] Mogelijke Business Logic (Non-UI functions):
+
+
+========================================================
+===== COUPLING ANALYSE =====
+========================================================
+
+1. UI -> Domain (Directe koppeling?):
+32
+2. UI -> Services (Directe koppeling?):
+0
+3. Context -> Adapters (Goede koppeling):
+1
+
+
+========================================================
+===== TECHNISCHE SCHULD (TODOs) =====
+========================================================
+
+  src/ui/selectors/__tests__/householdSelectors.test.ts:35:  /* TODO: Migreren naar nieuwe architectuur. 
+  src/utils/__tests__/numbers.test.ts:51:  it('moet 0.XXX niet als duizendtal behandelen (left !== 0 check)', () => {
+  src/app/orchestrators/VisibilityOrchestrator.ts:7:// TODO (SPRINT-2):
+
+
+========================================================
+===== KLAAR =====
+========================================================
+
+Klaar.
